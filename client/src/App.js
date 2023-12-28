@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout, ProtectedRoute, Account, Error, Home } from "./pages";
+import "./App.css";
 
 function App() {
   return (

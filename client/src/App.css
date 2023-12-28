@@ -1,0 +1,221 @@
+/* Global Css */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Account Page Css */
+.account-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form h3 {
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.form p {
+    text-align: center;
+    color: #ff0000;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.form-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+    text-transform: capitalize;
+
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    background-color: #b0c4de;
+    cursor: not-allowed;
+}
+
+.member-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.member-btn:hover {
+    text-decoration: none;
+}
+
+
+/* Error Page */
+/* Add this CSS to your stylesheets or create a new CSS file */
+
+.error-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.error-container {
+    text-align: center;
+    max-width: 400px;
+}
+
+.error-container img {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.error-container h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.error-container p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.error-container a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.error-container a:hover {
+    background-color: #0056b3;
+}
+
+/* Home */
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app header {
+    background-color: #343a40;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.app main {
+    flex: 1;
+    padding: 20px;
+}
+
+.app footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Home Component Styles */
+.app {
+    text-align: center;
+}
+
+.app h1 {
+    color: #333;
+}
+
+.app h3 {
+    color: #555;
+}
+
+.app p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.app .token {
+    overflow: hidden;
+    overflow-x: scroll;
+    padding: 10px 0;
+}
+
+.token::-webkit-scrollbar {
+    height: 4px !important;
+}
+
+.token::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 6px;
+}
+
+.token::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.app button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.app button:hover {
+    background-color: #0056b3;
+}

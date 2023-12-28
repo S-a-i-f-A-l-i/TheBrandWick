@@ -29,7 +29,11 @@ const Account = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const showAlert = (text) => {
+    setAlertText(() => text);
+  };
   const setupUser = async ({ currentUser, endPoint }) => {
+    setIsLoading(() => true);
     try {
       const response = await axios.post(
         `${apiUrl}/api/v1/auth/${endPoint}`,
@@ -37,25 +41,43 @@ const Account = () => {
       );
       const { data } = response;
       const { user, token } = data;
-      console.log(apiUrl, data);
-      console.log("USER", user, "TOKEN", token);
+      // console.log(apiUrl, data);
+      // console.log("USER", user, "TOKEN", token);
+      showAlert(`${endPoint} Successfully`);
       if (user && token) {
         setLocalStorage("user", user);
         setLocalStorage("token", token);
       }
-    } catch (error) {
-      console.log("setupUser ERROR", error);
+      setIsLoading(false);
+      setTimeout(() => {
+        showAlert("");
+      }, 1000);
+    } catch (catchError) {
+      // console.log("setupUser ERROR", catchError);
+      setIsLoading(false);
+      const {
+        response: { data: error },
+      } = catchError;
+      // console.log(error.error);
+      showAlert(error.error);
+      setTimeout(() => {
+        showAlert("");
+      }, 3000);
     }
   };
   const onSubmit = (e) => {
     e.preventDefault();
     const { name, email, password, isMember } = values;
     if (!email || !password || (!isMember && !name)) {
-      console.log("Not a member");
+      // console.log("Not a member");
+      showAlert("Please Fill All The Values");
+      setTimeout(() => {
+        setAlertText(() => "");
+      }, 3000);
       return;
     }
     const currentUser = { name, email, password };
-    console.log("currentUser", currentUser);
+    // console.log("currentUser", currentUser);
     if (isMember) {
       setupUser({
         currentUser,
@@ -73,12 +95,12 @@ const Account = () => {
     if (user) {
       setTimeout(() => {
         navigate("/");
-      }, 3000);
+      }, 2000);
     }
-  }, [user, navigate]);
+  }, [user]);
 
   return (
-    <div className="full-page">
+    <div className="account-page">
       <form className="form" onSubmit={onSubmit}>
         <h3>{values.isMember ? "Login" : "Register"}</h3>
         <p>{alertText}</p>
@@ -108,7 +130,7 @@ const Account = () => {
         </button>
 
         <p>
-          {values.isMember ? "Not a member yet?" : "Already a member?"}
+          {values.isMember ? "Not a member yet? " : "Already a member? "}
           <button type="button" onClick={toggleMember} className="member-btn">
             {values.isMember ? "Register" : "Login"}
           </button>
