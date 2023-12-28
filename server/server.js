@@ -8,6 +8,9 @@ const morgan = require("morgan");
 // db and authenticateUser
 const connectDB = require("./db/connect");
 
+// routers
+const authRouter = require("./routes/authRoutes.js");
+
 if (process.env.NODE_ENV !== "production") app.use(morgan("dev"));
 app.use(cors());
 
@@ -19,8 +22,9 @@ app.get("/", (req, res) => {
 app.get("/api/v1", (req, res) => {
   res.json({ msg: "API" });
 });
+app.use("/api/v1/auth", authRouter);
 
-app.get("*", (request, response) => {
+app.all("*", (request, response) => {
   response.json({ msg: "Sorry route doesn't exist" });
 });
 
